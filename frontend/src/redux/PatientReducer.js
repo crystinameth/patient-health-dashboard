@@ -3,7 +3,7 @@ import { ADD_PATIENT, GET_PATIENTS, SET_LOADING, GET_PATIENT_BY_ID } from './typ
 const initialState = {
     patients: [],
     patient: null,
-    loading: false,
+    loading: false
 };
 
 const patientReducer = (state = initialState, action) => {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_PATIENT, GET_PATIENTS, SET_LOADING, GET_PATIENT_BY_ID } from './types';
+import { ADD_PATIENT, GET_PATIENTS, SET_LOADING, GET_PATIENT_BY_ID, ADD_AUTH_REQUEST, GET_AUTH_REQUESTS, SET_AUTH_LOADING } from './types';
 
 // Action to add a patient
 export const addPatient = (patient) => {
@@ -56,6 +56,47 @@ export const getPatientById = (patientId) => {
 export const setLoading = (isLoading) => {
     return {
         type: SET_LOADING,
+        payload: isLoading,
+    };
+};
+
+// Action to add a new authorization request
+export const addAuthRequest = (authRequest) => {
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('http://localhost:5000/prior-auth/', authRequest);
+            dispatch({
+                type: ADD_AUTH_REQUEST,
+                payload: response.data, 
+            });
+        } catch (error) {
+            console.error('Error adding authorization request:', error);
+        }
+    };
+};
+
+// Action to get all authorization requests
+export const getAuthRequests = () => {
+    return async (dispatch) => {
+        dispatch(setAuthLoading(true)); 
+        try {
+            const response = await axios.get('http://localhost:5000/prior-auth/');
+            dispatch({
+                type: GET_AUTH_REQUESTS,
+                payload: response.data, 
+            });
+        } catch (error) {
+            console.error('Error fetching authorization requests:', error);
+        } finally {
+            dispatch(setAuthLoading(false)); 
+        }
+    };
+};
+
+// Action to set loading state for authorization requests
+export const setAuthLoading = (isLoading) => {
+    return {
+        type: SET_AUTH_LOADING,
         payload: isLoading,
     };
 };

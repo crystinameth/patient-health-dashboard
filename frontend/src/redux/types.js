@@ -2,3 +2,7 @@ export const ADD_PATIENT = 'ADD_PATIENT';
 export const GET_PATIENTS = 'GET_PATIENTS';
 export const SET_LOADING = 'SET_LOADING';
 export const GET_PATIENT_BY_ID = 'GET_PATIENT_BY_ID';
+
+export const ADD_AUTH_REQUEST = 'ADD_AUTH_REQUEST';
+export const GET_AUTH_REQUESTS = 'GET_AUTH_REQUESTS';
+export const SET_AUTH_LOADING = 'SET_AUTH_LOADING';
