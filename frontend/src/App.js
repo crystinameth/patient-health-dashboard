@@ -28,7 +28,7 @@ function App() {
     <Router>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <Toaster position="top-right" />
-      <div className="p-6">
+      <div>
         <Routes>
           <Route path="/patient-dashboard" element={<PatientDashboard />} />
           <Route path="/authrequest-dashboard" element={<AuthRequestDashboard />} />
