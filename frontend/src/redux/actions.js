@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { ADD_PATIENT, GET_PATIENTS, SET_LOADING, GET_PATIENT_BY_ID, ADD_AUTH_REQUEST, GET_AUTH_REQUESTS, SET_AUTH_LOADING } from './types';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 // Action to add a patient
 export const addPatient = (patient) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('http://localhost:5000/patients/', patient);
+            const response = await axios.post(`${API_BASE_URL}/patients/`, patient);
             dispatch({
                 type: ADD_PATIENT,
                 payload: response.data, 
@@ -21,7 +23,7 @@ export const getPatients = () => {
     return async (dispatch) => {
         dispatch(setLoading(true)); 
         try {
-            const response = await axios.get('http://localhost:5000/patients/');
+            const response = await axios.get(`${API_BASE_URL}/patients/`);
             dispatch({
                 type: GET_PATIENTS,
                 payload: response.data, 
@@ -39,7 +41,7 @@ export const getPatientById = (patientId) => {
     return async (dispatch) => {
         dispatch(setLoading(true)); 
         try {
-            const response = await axios.get(`http://localhost:5000/patients/${patientId}`);
+            const response = await axios.get(`${API_BASE_URL}/patients/${patientId}`);
             dispatch({
                 type: GET_PATIENT_BY_ID,
                 payload: response.data, 
@@ -64,7 +66,7 @@ export const setLoading = (isLoading) => {
 export const addAuthRequest = (authRequest) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('http://localhost:5000/prior-auth/', authRequest);
+            const response = await axios.post(`${API_BASE_URL}/prior-auth/`, authRequest);
             dispatch({
                 type: ADD_AUTH_REQUEST,
                 payload: response.data, 
@@ -80,7 +82,7 @@ export const getAuthRequests = () => {
     return async (dispatch) => {
         dispatch(setAuthLoading(true)); 
         try {
-            const response = await axios.get('http://localhost:5000/prior-auth/');
+            const response = await axios.get(`${API_BASE_URL}/prior-auth/`);
             dispatch({
                 type: GET_AUTH_REQUESTS,
                 payload: response.data, 
