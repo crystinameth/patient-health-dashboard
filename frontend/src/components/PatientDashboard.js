@@ -7,7 +7,7 @@ import AddPatientModal from './Modal/AddPatientModal';
 
 const PatientDashboard = () => {
     const dispatch = useDispatch();
-    const { patients, patient } = useSelector((state) => state);
+    const { patients, patient } = useSelector((state) => state.patients);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
