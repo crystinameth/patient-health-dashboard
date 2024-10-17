@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PatientDashboard from './components/PatientDashboard';
 import AuthRequestDashboard from './components/AuthRequestDashboard';
 import Header from './components/Header';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -26,6 +27,7 @@ function App() {
   return (
     <Router>
       <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <Toaster position="top-right" />
       <div className="p-6">
         <Routes>
           <Route path="/patient-dashboard" element={<PatientDashboard />} />
