@@ -4,6 +4,7 @@ import { addPatient, getPatients, getPatientById } from '../redux/actions';
 import PatientTable from './Table/PatientTable';
 import PatientModal from './Modal/ViewPatientModal';
 import AddPatientModal from './Modal/AddPatientModal';
+import { FaSearch } from 'react-icons/fa';
 
 const PatientDashboard = () => {
     const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const PatientDashboard = () => {
             <div className="flex dark:bg-gray-900 bg-gray-100 font-primary h-screen overflow-hidden">
                 <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
                     <div className="px-4 sm:px-6 lg:px-8 py-6 w-full max-w-9xl mx-auto">
-                        {/* Search and Add Patient Section */}
+                        {/* Search and Add Patient Section */}        
                         <div className="flex items-center space-x-2 mb-4">
                             <input
                                 type="text"
@@ -42,12 +43,16 @@ const PatientDashboard = () => {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
+
+                            {/* Search Icon Button for Small Screens */}
                             <button
-                                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow"
-                                onClick={handleSearch} 
+                                className="flex items-center justify-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow"
+                                onClick={handleSearch}
                             >
-                                Search
+                                <FaSearch className="text-lg" />
                             </button>
+
+                            {/* Add Patient Button */}
                             <button
                                 className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded shadow"
                                 onClick={() => setAddModalOpen(true)}
