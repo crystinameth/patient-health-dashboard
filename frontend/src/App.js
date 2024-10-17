@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PatientDashboard from './components/PatientDashboard';
-import PriorAuthForm from './components/PriorAuthForm';
+import AuthRequestDashboard from './components/AuthRequestDashboard';
 import Header from './components/Header';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <div className="p-6">
         <Routes>
           <Route path="/patient-dashboard" element={<PatientDashboard />} />
-          <Route path="/authrequest-dashboard" element={<PriorAuthForm />} />
+          <Route path="/authrequest-dashboard" element={<AuthRequestDashboard />} />
         </Routes>
       </div>
     </Router>
