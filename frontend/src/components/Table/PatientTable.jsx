@@ -4,29 +4,19 @@ import PatientTableItem from './PatientTableItem';
 const PatientTable = ({ patients, setSelectedPatient, setModalOpen }) => {
     return (
         <div className="font-primary relative w-full">
-            <div className='bg-white dark:bg-dark_50 rounded-t-xl'>
+            <div className='bg-white dark:bg-gray-800 rounded-t-xl shadow-lg'>
                 <div className="overflow-x-auto">
-                    <table className="table-auto w-full divide-y divide-gray-200">
-                        <thead className="text-xs uppercase text-[#8C8C8C]">
+                    <table className="table-auto w-full divide-y divide-gray-300">
+                        <thead className="text-xs uppercase text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700">
                             <tr>
-                                <th className="px-2 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-center">No.</div>
-                                </th>
-                                <th className="px-2 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-center">Name</div>
-                                </th>
-                                <th className="px-2 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-center">Age</div>
-                                </th>
-                                <th className="px-2 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-center">Condition</div>
-                                </th>
-                                <th className="px-2 py-3 whitespace-nowrap">
-                                    <div className="font-semibold text-center">Action</div>
-                                </th>
+                                {['No.', 'Name', 'Age', 'Condition', 'Action'].map((header, index) => (
+                                    <th key={index} className="px-4 py-3 text-center whitespace-nowrap">
+                                        <div className="font-semibold text-md">{header}</div>
+                                    </th>
+                                ))}
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="bg-gray-50 dark:bg-gray-900">
                             {patients.map((patient, index) => (
                                 <PatientTableItem
                                     key={patient._id}

@@ -7,23 +7,15 @@ const PatientTableItem = ({ num, patient, setSelectedPatient, setModalOpen }) =>
     };
 
     return (
-        <tr className='border-t-2 border-gray-200'>
-            <td className="px-2 py-4 whitespace-nowrap text-center">
-                {num}.
-            </td>
-            <td className="px-2 py-4 whitespace-nowrap text-center">
-                {patient.name}
-            </td>
-            <td className="px-2 py-4 whitespace-nowrap text-center">
-                {patient.age}
-            </td>
-            <td className="px-2 py-4 whitespace-nowrap text-center">
-                {patient.condition}
-            </td>
-            <td className="px-2 py-4 whitespace-nowrap text-center">
+        <tr className='border-b border-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200'>
+            <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300 text-sm">{num}.</td>
+            <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300 text-sm">{patient.name}</td>
+            <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300 text-sm">{patient.age}</td>
+            <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300 text-sm">{patient.condition}</td>
+            <td className="px-4 py-4 text-center">
                 <button 
                     onClick={handleView} 
-                    className="text-brand underline">
+                    className="text-blue-600 hover:text-blue-800 underline dark:text-blue-400 dark:hover:text-blue-300 transition duration-200">
                     View
                 </button>
             </td>
